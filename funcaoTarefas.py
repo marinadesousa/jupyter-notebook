@@ -1,8 +1,11 @@
 def adicionarTarefa(tarefas, tarefasDic):
     tarefa = input("\nDigite o nome da tarefa para adicionar: ").lower().strip() # Lê a tarefa, transformando em minúsuculas e removendo os espaços iniciais e finais
-    tarefas.append(tarefa) # Armazena a tarefa lida a lista 'tarefas' que será um dos pârametros usado na hora da chamada da função
-    tarefasDic.update({tarefa: "Não Concluída"}) # Armazena a tarefa lida no dicionário 'tarefasDic' já com o valor de 'Não Concluída'
-    return print(f"Tarefa '{tarefa}' adicionada a lista de tarefas!") # Retorno confirmando a inclusão da tarefa
+    if tarefa in tarefas: # Vai verificar se a tarefa já existe
+        print("\nEstá tarefa já existe.")
+    else:
+        tarefas.append(tarefa) # Armazena a tarefa lida a lista 'tarefas' que será um dos pârametros usado na hora da chamada da função
+        tarefasDic.update({tarefa: "Não Concluída"}) # Armazena a tarefa lida no dicionário 'tarefasDic' já com o valor de 'Não Concluída'
+        return print(f"Tarefa '{tarefa}' adicionada a lista de tarefas!") # Retorno confirmando a inclusão da tarefa
 
 def removerTarefa(tarefas, tarefasDic):
     tarefa = input("\nDigite o nome da tarefa para remover: ").lower().strip() # Lê a tarefa, transformando em minúsuculas e removendo os espaços iniciais e finais
